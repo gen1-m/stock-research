@@ -27,14 +27,14 @@ export default function Home() {
       } catch (error) {
         setError(error);
       }
-    };
+    }
 
     fetchData();
   }, []); // Empty dependency array means this effect runs once after the initial render
 
-  // Check for loading or error state
-  if (!data && !error) {
-    return <main>Loading...</main>;
+  // Check for loading
+  if (!data) {
+    return <main className="flex bg-amber-300">Loading...</main>;
   }
 
   if (error) {
@@ -46,9 +46,9 @@ export default function Home() {
   const names = data.body.map(obj => obj.name);
 
   return (
-    <main>
+    <main className="flex justify-items-center">
       <h1>Names Table</h1>
-      <table>
+      <table className={""}>
         <thead>
           <tr>
             <th>Name</th>
