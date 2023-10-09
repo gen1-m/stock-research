@@ -1,4 +1,3 @@
-
 export async function GET(req) {
 	const url = 'https://mboum-finance.p.rapidapi.com/sc/search/B';
 	

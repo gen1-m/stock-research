@@ -3,8 +3,10 @@ import React, { useState, useEffect } from 'react';
 
 // Fetch data function
 async function getData() {
-  const res = await fetch("http://localhost:3000/api/yahooApi/", {
-    method: "GET"
+  const res = await fetch(
+    'http://localhost:3000/api/yahooApi/', {
+    method: "GET", 
+    cache: 'no-store'
   });
   
   if(!res.ok) {
