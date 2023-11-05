@@ -1,6 +1,12 @@
 
-export async function GET() {
-	const url = `https://yahoo-finance15.p.rapidapi.com/api/yahoo/sc/search/A`;
+export async function GET(request) {
+	const { searchParams } = new URL(request.url)
+	const letter = searchParams.get('letter')
+	var value = 'ne/news'
+
+	if (letter) value = 'sc/search'
+
+	const url = `https://yahoo-finance15.p.rapidapi.com/api/yahoo/${value}/${letter}`;
 	const options = {
 		method: 'GET',
 		headers: {
