@@ -7,11 +7,15 @@ export async function GET() {
     headers: {
         'User-Agent': 'request'
     }
-  }
-
-  const response = await fetch(apiUrl, options);
-  const result = await response.text();
-  if (!result) throw new Error('Failed to fetch data')
+  };
   
-  return Response.json(result, { status: 200 })
+  try {
+    const response = await fetch(apiUrl, options);
+    const result = await response.text();
+    return Response.json(result, { status: 200 });
+  } catch (error) {
+    console.error(error);
+    return Response.error();
+  }
+  
 }

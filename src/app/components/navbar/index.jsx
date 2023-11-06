@@ -2,20 +2,19 @@
 import React from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
 import Image from "next/image";
-// import {AcmeLogo} from "./AcmeLogo.jsx";
 
 export default function NavBar() {
   return (
-    <Navbar>
+    <Navbar isBordered>
       <NavbarBrand>
         <Link href="/">
           <p className="font-bold px-2 text-inherit">StockLib</p>
           <Image
-                      className="h-8 w-auto bg-white rounded-md"
-                      width={150}
-                      height={150}
-                      src="https://api.iconify.design/arcticons:stockswidget.svg"
-                      alt="Your Company"
+            className="h-8 w-auto bg-white rounded-md"
+            width={150}
+            height={150}
+            src="https://api.iconify.design/arcticons:stockswidget.svg"
+            alt="StockLib Logo"
           />
         </Link>
       </NavbarBrand>

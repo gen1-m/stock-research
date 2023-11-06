@@ -1,10 +1,14 @@
 export async function getSearch(letter) {
+  const host = process.env.BASE_URL_HOST;
+  try {
     const res = await fetch(
-      `http://localhost:3000/api/rapid-yahoo/search/?letter=${letter}`, {
+      `${host}/api/rapid-yahoo/search/?letter=${letter}`, {
       cache: 'no-store'
     });
-  
-    if(!res.ok) throw new Error('Failed to fetch data')
-    
-    return res.json()
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    return Response.error();
   }
+}

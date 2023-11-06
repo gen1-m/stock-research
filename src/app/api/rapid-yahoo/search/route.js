@@ -16,11 +16,9 @@ export async function GET(request) {
 	};
 
 	try {
-
 		const response = await fetch(url, options);
 		const result = await response.text();
 		return Response.json(JSON.parse(result), { status: 200});
-
 	} catch (error) {
 		console.error(error);
 		return Response.error();
